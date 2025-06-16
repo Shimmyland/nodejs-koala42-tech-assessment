@@ -1,0 +1,24 @@
+services:
+  api:
+    environment:
+      - NODE_ENV=test
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:17
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
