@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+    title: Tech Assessment
+    description: Exercise for Koala42
+    version: 1.0.0
+    contact:
+        email: simonlibiger@gmail.com
+servers:
+    - url: http://localhost:3000
+      description: Local Server
+paths:
+    /characters:
+        get:
+            tags:
+                - Characters
+            summary: Get all characters with statistics
+            description: Returns a list of all characters with statistics and related entites
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    statistics:
+                                        $ref: './objects.yaml#/Statistics'
+                                    characters:
+                                        type: array
+                                        items:
+                                          $ref: './objects.yaml#/Character'
+                '500':
+                    description: Internal Server Error
+                    content:
+                        application/json:
+                            schema:
+                              type: object
+                              properties:
+                                  message:
+                                      type: string
+                                      example: 'An unexpected error occurred on the server. Please try again later.'

@@ -1,0 +1,96 @@
+Character:
+  type: object
+  properties:
+    id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: "Zaphod Beeblebrox"
+    gender:
+      type: string
+      nullable: true
+      example: "male"
+    ability:
+      type: string
+      nullable: true
+      example: "Two heads and three arms"
+    minimalDistance:
+      type: number
+      format: float
+      nullable: true
+      example: 3.14
+    weight:
+      type: number
+      format: float
+      nullable: true
+      example: 75.5
+    born:
+      type: string
+      format: date-time
+      nullable: true
+      example: "2023-01-01T00:00:00Z"
+    inSpaceSince:
+      type: string
+      format: date-time
+      nullable: true
+      example: "2024-01-01T00:00:00Z"
+    beerConsumption:
+      type: integer
+      example: 42
+    knowsTheAnswer:
+      type: boolean
+      example: true
+    nemeses:
+      type: array
+      items:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            years:
+              type: integer
+              nullable: true
+              example: 5
+            isAlive:
+              type: boolean
+              example: true
+            secrets:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  secretCode:
+                    type: integer
+                    example: 9876543210
+
+Statistics:
+  type: object
+  properties:
+    charactersCount:
+      type: integer
+      example: 11
+    averageAge:
+      type: number
+      format: float
+      example: 41.73
+    averageWeight:
+      type: number
+      format: float
+      example: 104.03
+    genders:
+      type: object
+      properties:
+        male:
+          type: integer
+          example: 1
+        female:
+          type: integer
+          example: 2
+        other:
+          type: integer
+          example: 3
