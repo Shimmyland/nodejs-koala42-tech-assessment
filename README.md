@@ -8,6 +8,7 @@
 - [Tech Stack](#tech-stack)
 - [Deployment](#deployment)
 - [Important Information](#important-information)
+- [Known Issues](#known-issues)
 - [Reflection](#reflection)
 - [Questions](#questions)
 
