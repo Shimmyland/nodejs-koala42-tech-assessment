@@ -7,19 +7,27 @@
     "format": "prettier --write ./src",
     "compile": "npx tsc -p ./tsconfig.build.json",
     "api": "npm run format && npm run compile && NODE_ENV=prod node ./dist/api/server.js | npx pino-pretty",
-    "api-docker": "docker build -t nodejs-koala42-tech-assessment . && docker run -p 3000:3000 nodejs-koala42-tech-assessment",
-    "test": "npm run format && npm run compile && docker-compose --env-file .env.test -f docker-compose.yml up -d --force-recreate"
+    "api:docker": "docker build -t nodejs-koala42-tech-assessment . && docker run -p 3000:3000 nodejs-koala42-tech-assessment",
+    "test:db": "docker-compose --env-file .env.test -f docker-compose.yaml up -d --force-recreate", 
+    "test:run": "npm run test:db && NODE_ENV=test npx mocha --loader=ts-node/esm 'test/**/*.spec.ts'"
   },
   "keywords": [],
   "author": "Šimon Libiger",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@types/chai": "^5.2.2",
     "@types/express": "^5.0.3",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.0.1",
+    "@types/supertest": "^6.0.3",
     "@types/swagger-ui-express": "^4.1.8",
     "@types/typescript": "^0.4.29",
+    "chai": "^5.2.0",
+    "mocha": "^11.6.0",
     "prettier": "^3.5.3",
+    "supertest": "^7.1.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {

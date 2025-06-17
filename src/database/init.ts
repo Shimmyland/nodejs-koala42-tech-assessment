@@ -50,12 +50,14 @@ export async function initDatabase() {
                 { secretCode: 1798274556, nemesis: savedNemesis[2] }
             ]
             await AppDataSource.getRepository(Secret).save(secretsSeed)
+            logger.info('Database seeded successfully!')
         }
 
         logger.info('Data Source has been initialized!')
     } catch (error) {
+        console.error('Error during Data Source initialization2:', error)
         if (error instanceof Error) {
-            logger.error('Error during Data Source initialization:', error.message, error.stack)
+            logger.error('Error during Data Source initialization:', error.message, error.stack, error.cause)
         } else {
             logger.error('Failed to initialize Data Source:', error)
         }
