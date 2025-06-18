@@ -46,10 +46,10 @@ This is a simple REST API that connects to a PostgreSQL database and exposes a s
 
 ## Important Information
 - Proper configuration of `.env` files is essential for smooth operation.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) is required to run the project using Docker.
-- API documentation is available at `/api-docs` (runtime).
-- Use [Postman](https://www.postman.com/downloads/) to test endpoints (recommended).
-- Uses external PostgreSQL instance (can also run DB locally via Docker with `npm run test:db`).
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) is required to run the project using Docker. (macOS & Windows)
+- API documentation is available at `/api-docs` during runtime.
+- Use [Postman](https://www.postman.com/downloads/) to test endpoints. (recommended)
+- Uses external PostgreSQL instance, but can also run the database locally via Docker with `npm run test:db`.
 - TypeORM handles database entity mapping.
 - Run the tests with `npm run test:run` 
 
@@ -58,7 +58,7 @@ This is a simple REST API that connects to a PostgreSQL database and exposes a s
 
 **Pagination**: Currently, the endpoint returns everything all characters, their nemeses, and their secrets in one big nested JSON blob. That’s fine for small datasets, but if the database ever holds thousands of records... *well, you probably don’t want to accidentally DDoS yourself*. Lazy Loading (e.g., pagination) would definitely be needed to keep things fast and stable.
 
-**Serialization and Mapping**: The response structure right now mirrors the database entities directly. I skipped serialization and DTOs to save time and because of the returned data structure showned in example. In a production app, I’d use DTOs to explicitly shape the output and avoid leaking unnecessary internal structure. Also i some manual type mapping but i'm not sure if it was needed.
+**Serialization and Mapping**: The response structure right now mirrors the database entities directly. I skipped serialization and DTOs to save time and because of the returned data structure showned in example. In a production app, I’d use DTOs to explicitly shape the output and avoid leaking unnecessary internal structure. Also i did some manual type mapping but i'm not sure if it was needed.
 
 **Migration**: Since the database was externally hosted (and not mine), I chose not to implement migrations here. (*No surprise `typeorm_migrations` tables sneaking in.*) In a real setup, I’d try to include TypeORM migration handling with environment-specific configs.
 
@@ -81,7 +81,7 @@ This is a simple REST API that connects to a PostgreSQL database and exposes a s
 ## Question
 - Which technologies would you choose and why?
 - How would you approach this assignment? What would you do differently?
-- How would you allocate time for this assessment?
+- How would you allocate your time on this assessment? Where would you start?
 - What’s your opinion on my `tsconfig.json` and `tsconfig.build.json`? I’d love some feedback. (i’m self-taught)
 - Are there better package versions I should’ve considered, or things I missed?
 
