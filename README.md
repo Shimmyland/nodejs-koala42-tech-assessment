@@ -37,8 +37,17 @@ This is a simple REST API that connects to a PostgreSQL database and exposes a s
     ```bash
     cd <project-name-folder>
     ```
-3. Create `.env.prod` and `.env.test` files based on `.env-example`
-4. Run the API:
+3. Verify that Node.js and NPM are installed:
+    ```bash
+    node -v
+    npm -v
+    ```
+4. Install dependencies:
+    ```bash
+    npm install
+    ```
+5. Create `.env.prod` and `.env.test` files based on `.env-example`
+6. Run the API:
     ```bash
     npm run api         # Run API localy, connect to external DB
     npm run api:docker  # Run API in Docker Container, connect to external DB
